@@ -22,8 +22,6 @@ export default class SeedConsul extends Command {
     const {args, flags} = this.parse(SeedConsul)
     const path = args.file || `${process.cwd()}/.env`
 
-    // this.log(`Parsing ${path}`)
-
     try {
       if (fs.existsSync(path)) {
         //file exists

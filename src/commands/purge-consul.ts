@@ -24,7 +24,6 @@ export default class PurgeConsul extends Command {
     const {args, flags} = this.parse(PurgeConsul)
     const path = args.file || `${process.cwd()}/.env`
 
-
         try {
           if (fs.existsSync(path)) {
             //file exists
