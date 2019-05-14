@@ -14,7 +14,6 @@ export default class PurgeConsul extends Command {
     path: flags.string({char: 'p', description: 'path'}),
     token: flags.string({char: 't', description: 'token'}),
     server: flags.string({char: 's', description: 'server'}),
-
   }
 
   static args = [{name: 'file'}]
