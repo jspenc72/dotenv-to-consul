@@ -32,6 +32,7 @@ USAGE
 <!-- commands -->
 * [`dotenv-to-consul hello [FILE]`](#dotenv-to-consul-hello-file)
 * [`dotenv-to-consul help [COMMAND]`](#dotenv-to-consul-help-command)
+* [`dotenv-to-consul read [FILE]`](#dotenv-to-consul-read-file)
 
 ## `dotenv-to-consul hello [FILE]`
 
@@ -69,4 +70,20 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
+
+## `dotenv-to-consul read [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ dotenv-to-consul read [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/read.ts](https://github.com/jspenc72/dotenv-to-consul/blob/v0.0.1/src/commands/read.ts)_
 <!-- commandsstop -->
