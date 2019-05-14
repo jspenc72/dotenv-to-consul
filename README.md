@@ -31,6 +31,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`dotenv-to-consul help [COMMAND]`](#dotenv-to-consul-help-command)
+* [`dotenv-to-consul purge-consul [FILE]`](#dotenv-to-consul-purge-consul-file)
 * [`dotenv-to-consul read [FILE]`](#dotenv-to-consul-read-file)
 * [`dotenv-to-consul seed-consul [FILE]`](#dotenv-to-consul-seed-consul-file)
 
@@ -51,6 +52,22 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 
+## `dotenv-to-consul purge-consul [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ dotenv-to-consul purge-consul [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/purge-consul.ts](https://github.com/jspenc72/dotenv-to-consul/blob/v0.0.1/src/commands/purge-consul.ts)_
+
 ## `dotenv-to-consul read [FILE]`
 
 Read a .env file and print the corresponding key value pairs
@@ -69,7 +86,7 @@ _See code: [src/commands/read.ts](https://github.com/jspenc72/dotenv-to-consul/b
 
 ## `dotenv-to-consul seed-consul [FILE]`
 
-describe the command here
+Read a .env file and seed consul kv store
 
 ```
 USAGE
@@ -77,8 +94,10 @@ USAGE
 
 OPTIONS
   -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help           show CLI help
+  -p, --path=path      path
+  -s, --server=server  server
+  -t, --token=token    token
 ```
 
 _See code: [src/commands/seed-consul.ts](https://github.com/jspenc72/dotenv-to-consul/blob/v0.0.1/src/commands/seed-consul.ts)_
