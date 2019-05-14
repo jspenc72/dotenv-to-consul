@@ -30,29 +30,9 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`dotenv-to-consul hello [FILE]`](#dotenv-to-consul-hello-file)
 * [`dotenv-to-consul help [COMMAND]`](#dotenv-to-consul-help-command)
 * [`dotenv-to-consul read [FILE]`](#dotenv-to-consul-read-file)
-
-## `dotenv-to-consul hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ dotenv-to-consul hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ dotenv-to-consul hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/jspenc72/dotenv-to-consul/blob/v0.0.1/src/commands/hello.ts)_
+* [`dotenv-to-consul seed-consul [FILE]`](#dotenv-to-consul-seed-consul-file)
 
 ## `dotenv-to-consul help [COMMAND]`
 
@@ -73,7 +53,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 ## `dotenv-to-consul read [FILE]`
 
-describe the command here
+Read a .env file and print the corresponding key value pairs
 
 ```
 USAGE
@@ -86,4 +66,20 @@ OPTIONS
 ```
 
 _See code: [src/commands/read.ts](https://github.com/jspenc72/dotenv-to-consul/blob/v0.0.1/src/commands/read.ts)_
+
+## `dotenv-to-consul seed-consul [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ dotenv-to-consul seed-consul [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/seed-consul.ts](https://github.com/jspenc72/dotenv-to-consul/blob/v0.0.1/src/commands/seed-consul.ts)_
 <!-- commandsstop -->
