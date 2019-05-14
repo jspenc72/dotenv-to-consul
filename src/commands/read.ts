@@ -19,7 +19,7 @@ export default class Read extends Command {
     const {args, flags} = this.parse(Read)
     const path = args.file || `${process.cwd()}/.env`
 
-    this.log(`Parsing ${path}`)
+    // this.log(`Parsing ${path}`)
 
     try {
       if (fs.existsSync(path)) {
@@ -28,13 +28,16 @@ export default class Read extends Command {
         let lineReader = require('readline').createInterface({
           input: require('fs').createReadStream(path)
         })
-        this.log('key=value')
         lineReader.on('line', (line) => {
           let k = line.split('=')[0]
           let v = line.split('=')[1]
           count++
-          this.log(count, k, '=', v)
+          this.log(`${k} = ${v}`)
         })
+        lineReader.on('close', () => {
+          this.log(`Found ${count} kv pairs.`)
+        });
+
       } else{
         this.error(`file does not exist at path: ${path}`)
       }

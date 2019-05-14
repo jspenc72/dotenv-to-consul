@@ -1,7 +1,7 @@
 dotenv-to-consul
 ================
 
-Read .env file and populate consul directory with all key values
+Cli tool to parse key values from a .env file and populate consul key value store.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/dotenv-to-consul.svg)](https://npmjs.org/package/dotenv-to-consul)
