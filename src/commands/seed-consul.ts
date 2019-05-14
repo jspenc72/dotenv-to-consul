@@ -2,7 +2,7 @@ import {Command, flags} from '@oclif/command'
 const http = require('http')
 const fs = require('fs')
 const lineReader = require('readline')
-// const axios = require('axios')
+const axios = require('axios')
 
 export default class SeedConsul extends Command {
   static description = 'Read a .env file and seed consul kv store'
@@ -45,15 +45,15 @@ export default class SeedConsul extends Command {
           let config = {
             headers: {'X-Consul-Token': flags.token},
           }
-          // envs.forEach(kv => {
-          //   axios.put(`${flags.server}/v1/kv/flags.path`, kv, config)
-          //     .then(function (response) {
-          //       this.log(response);
-          //     })
-          //     .catch(function (error) {
-          //       this.log(error);
-          //     });
-          // });
+          this.envs.forEach(kv => {
+            axios.put(`${flags.server}/v1/kv/${flags.path}/${kv.key}`, kv.value, config)
+              .then((response) => {
+                this.log(response)
+              })
+              .catch((error) => {
+                this.log(error)
+              })
+          })
         })
       } else{
         this.error(`file does not exist at path: ${path}`)
