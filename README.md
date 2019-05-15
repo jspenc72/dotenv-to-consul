@@ -28,6 +28,24 @@ USAGE
 ...
 ```
 <!-- usagestop -->
+
+# .env to consul
+
+```bash
+dotenv-to-consul seed-consul -s http://consul.comany.net:8500 -t <EXAMPLE_TOKEN> -p EXAMPLE/1234
+```
+
+```.env
+KEY1=value_1
+KEY2=value_2
+KEY3=value_3
+KEY4=value_4
+```
+
+```bash
+dotenv-to-consul purge-consul -s http://consul.comany.net:8500 -t <EXAMPLE_TOKEN> -p EXAMPLE/1234
+```
+
 # Commands
 <!-- commands -->
 * [`dotenv-to-consul help [COMMAND]`](#dotenv-to-consul-help-command)

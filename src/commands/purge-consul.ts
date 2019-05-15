@@ -17,49 +17,49 @@ export default class PurgeConsul extends Command {
   }
 
   static args = [{name: 'file'}]
-  envs: [] = []
+  envs: [any] = []
 
   async run() {
     const {args, flags} = this.parse(PurgeConsul)
     const path = args.file || `${process.cwd()}/.env`
 
-        try {
-          if (fs.existsSync(path)) {
-            //file exists
-            let count = 0;
-            let lineReader = require('readline').createInterface({
-              input: require('fs').createReadStream(path)
-            })
-            lineReader.on('line', (line) => {
-              let kv = {
-                key: line.split('=')[0],
-                value: line.split('=')[1]
-              }
-              this.envs.push(kv)
-              count++
-              // this.log(`${count}`)
-            })
-            lineReader.on('close', () => {
-              this.log(`${this.envs.length}`)
-              let config = {
-                headers: {'X-Consul-Token': flags.token},
-              }
-              this.envs.forEach(kv => {
-                axios.delete(`${flags.server}/v1/kv/${flags.path}/${kv.key}`, config)
-                  .then((response) => {
-                    this.log(response)
-                  })
-                  .catch((error) => {
-                    this.log(error)
-                  })
-              })
-            })
-          } else{
-            this.error(`file does not exist at path: ${path}`)
+    try {
+      if (fs.existsSync(path)) {
+        //file exists
+        let count = 0
+        let lineReader = require('readline').createInterface({
+          input: require('fs').createReadStream(path)
+        })
+        lineReader.on('line', (line: any) => {
+          let kv = {
+            key: line.split('=')[0],
+            value: line.split('=')[1]
           }
-        } catch (err) {
-          this.error(err)
-        }
+          this.envs.push(kv)
+          count++
+          // this.log(`${count}`)
+        })
+        lineReader.on('close', () => {
+          this.log(`${this.envs.length}`)
+          let config = {
+            headers: {'X-Consul-Token': flags.token},
+          }
+          this.envs.forEach(kv => {
+            axios.delete(`${flags.server}/v1/kv/${flags.path}/${kv.key}`, config)
+              .then((response: any) => {
+                this.log(response)
+              })
+              .catch((error: any) => {
+                this.log(error)
+              })
+          })
+        })
+      } else {
+        this.error(`file does not exist at path: ${path}`)
+      }
+    } catch (err) {
+      this.error(err)
+    }
 
   }
 }

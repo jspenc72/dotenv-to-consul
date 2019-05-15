@@ -17,7 +17,7 @@ export default class SeedConsul extends Command {
   }
 
   static args = [{name: 'file'}]
-  envs: [] = []
+  envs: [any] = []
   async run() {
     const {args, flags} = this.parse(SeedConsul)
     const path = args.file || `${process.cwd()}/.env`
@@ -25,11 +25,11 @@ export default class SeedConsul extends Command {
     try {
       if (fs.existsSync(path)) {
         //file exists
-        let count = 0;
+        let count = 0
         let lineReader = require('readline').createInterface({
           input: require('fs').createReadStream(path)
         })
-        lineReader.on('line', (line) => {
+        lineReader.on('line', (line: any) => {
           let kv = {
             key: line.split('=')[0],
             value: line.split('=')[1]
@@ -43,17 +43,17 @@ export default class SeedConsul extends Command {
           let config = {
             headers: {'X-Consul-Token': flags.token},
           }
-          this.envs.forEach(kv => {
+          this.envs.forEach((kv: any) => {
             axios.put(`${flags.server}/v1/kv/${flags.path}/${kv.key}`, kv.value, config)
-              .then((response) => {
+              .then((response: any) => {
                 this.log(response)
               })
-              .catch((error) => {
+              .catch((error: any) => {
                 this.log(error)
               })
           })
         })
-      } else{
+      } else {
         this.error(`file does not exist at path: ${path}`)
       }
     } catch (err) {
