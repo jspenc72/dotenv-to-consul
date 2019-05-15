@@ -47,13 +47,13 @@ DB_USER=root
 DB_PASS=easypass
 ```
 
-The following folder is created in consul:
+Using the .env above the following folder is created in consul:
 ![alt text](https://raw.githubusercontent.com/jspenc72/dotenv-to-consul/master/resources/example_path.png "Example Path")
 
 The sample kv detail:
 ![alt text](https://raw.githubusercontent.com/jspenc72/dotenv-to-consul/master/resources/db_pass.png "Example KV")
 
-# Purging .env in consul
+# Purging .env from consul
 
 ```bash
 dotenv-to-consul purge-consul /path/to/.env -s http://consul.comany.net:8500 -t <EXAMPLE_TOKEN> -p EXAMPLE/1234
