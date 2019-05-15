@@ -28,7 +28,7 @@ export default class Read extends Command {
         let lineReader = require('readline').createInterface({
           input: require('fs').createReadStream(path)
         })
-        lineReader.on('line', (line) => {
+        lineReader.on('line', (line: any) => {
           let k = line.split('=')[0]
           let v = line.split('=')[1]
           count++

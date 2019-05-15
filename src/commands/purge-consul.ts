@@ -17,7 +17,7 @@ export default class PurgeConsul extends Command {
   }
 
   static args = [{name: 'file'}]
-  envs: [any] = []
+  envs: any = []
 
   async run() {
     const {args, flags} = this.parse(PurgeConsul)
@@ -44,7 +44,7 @@ export default class PurgeConsul extends Command {
           let config = {
             headers: {'X-Consul-Token': flags.token},
           }
-          this.envs.forEach(kv => {
+          this.envs.forEach((kv: any) => {
             axios.delete(`${flags.server}/v1/kv/${flags.path}/${kv.key}`, config)
               .then((response: any) => {
                 this.log(response)

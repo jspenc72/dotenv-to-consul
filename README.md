@@ -1,7 +1,7 @@
 dotenv-to-consul
 ================
 
-Cli tool to parse key values from a .env file and populate consul key value store.
+dotenv-to-consul is a single dependency cli that parses kv pairs from a .env file and populates consul key value store. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/dotenv-to-consul.svg)](https://npmjs.org/package/dotenv-to-consul)
@@ -12,6 +12,7 @@ Cli tool to parse key values from a .env file and populate consul key value stor
 
 <!-- toc -->
 * [Usage](#usage)
+* [.env to consul](#env-to-consul)
 * [Commands](#commands)
 <!-- tocstop -->
 # Usage
@@ -29,21 +30,27 @@ USAGE
 ```
 <!-- usagestop -->
 
-# .env to consul
+
+# Storing .env in consul
+
 
 ```bash
-dotenv-to-consul seed-consul -s http://consul.comany.net:8500 -t <EXAMPLE_TOKEN> -p EXAMPLE/1234
+dotenv-to-consul seed-consul /path/to/.env -s http://consul.comany.net:8500 -t <EXAMPLE_TOKEN> -p EXAMPLE/1234
 ```
+
+Create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
 
 ```.env
-KEY1=value_1
-KEY2=value_2
-KEY3=value_3
-KEY4=value_4
+KEY=value
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=easypass
 ```
 
+# Purging .env in consul
+
 ```bash
-dotenv-to-consul purge-consul -s http://consul.comany.net:8500 -t <EXAMPLE_TOKEN> -p EXAMPLE/1234
+dotenv-to-consul purge-consul /path/to/.env -s http://consul.comany.net:8500 -t <EXAMPLE_TOKEN> -p EXAMPLE/1234
 ```
 
 # Commands
@@ -72,7 +79,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 ## `dotenv-to-consul purge-consul [FILE]`
 
-describe the command here
+Read a .env file and purge its contents from consul kv store
 
 ```
 USAGE
@@ -80,8 +87,10 @@ USAGE
 
 OPTIONS
   -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help           show CLI help
+  -p, --path=path      path
+  -s, --server=server  server
+  -t, --token=token    token
 ```
 
 _See code: [src/commands/purge-consul.ts](https://github.com/jspenc72/dotenv-to-consul/blob/v0.0.1/src/commands/purge-consul.ts)_

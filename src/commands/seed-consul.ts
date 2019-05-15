@@ -17,7 +17,7 @@ export default class SeedConsul extends Command {
   }
 
   static args = [{name: 'file'}]
-  envs: [any] = []
+  envs: any = []
   async run() {
     const {args, flags} = this.parse(SeedConsul)
     const path = args.file || `${process.cwd()}/.env`
