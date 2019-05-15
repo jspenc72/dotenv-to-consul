@@ -1,7 +1,7 @@
 dotenv-to-consul
 ================
 
-dotenv-to-consul is a single dependency cli that parses kv pairs from a .env file and populates consul key value store. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
+dotenv-to-consul is a single dependency cli tool that parses kv pairs from a .env file and populates consul key value store. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/dotenv-to-consul.svg)](https://npmjs.org/package/dotenv-to-consul)
