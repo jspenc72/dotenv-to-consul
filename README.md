@@ -15,6 +15,9 @@ dotenv-to-consul is a single dependency cli tool that parses kv pairs from a .en
 * [.env to consul](#env-to-consul)
 * [Commands](#commands)
 <!-- tocstop -->
+
+[![alt text](https://s3.amazonaws.com/hashicorp-marketing-web-assets/brand/Consul_PrimaryLogo_FullColor.BkqqyRBpl.svg "Consul Logo")](https://www.consul.io)
+
 # Usage
 <!-- usage -->
 ```sh-session
